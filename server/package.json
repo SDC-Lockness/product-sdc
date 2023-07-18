@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server-dev": "nodemon server.js",
+    "server-prod": "NODE_ENV=production node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
