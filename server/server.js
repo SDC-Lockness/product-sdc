@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
+const path = require('path');
 
 const app = express();
 
@@ -113,6 +114,19 @@ app.get('/products/:product_id/related', async (req, res) => {
       console.error('something went wrong in related endpoint');
     }
   }
+});
+
+app.get('/pro', (req, res) => {
+  res.send('hi');
+});
+
+// For loader.io test verification
+app.get('/loaderio-d90e6400495202fa4bfa953daaf1b3d3/', (req, res) => {
+  const options = {
+    root: path.join(__dirname)
+  };
+
+  res.sendFile('loaderio-d90e6400495202fa4bfa953daaf1b3d3.txt', options);
 });
 
 app.listen(3005);
